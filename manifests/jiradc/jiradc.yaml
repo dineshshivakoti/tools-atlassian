@@ -9,7 +9,7 @@ spec:
   releaseName: jiradc
   chart:
     spec:
-      chart: atlassian-data-center/jira
+      chart: jira
       version: 1.4.0
       sourceRef:
         kind: HelmRepository

@@ -540,7 +540,7 @@ spec:
           
           # -- The maximum amount of heap memory that will be used by the Jira JVM
           #
-          maxHeap: "768m"
+          maxHeap: "512m"
           
           # -- The minimum amount of heap memory that will be used by the Jira JVM
           #
@@ -567,9 +567,9 @@ spec:
             # -- Initial Memory request by Jira pod
             #
             memory: "1G"
-          #  limits:
-          #    cpu: "2"
-          #    memory: "2G"
+              limits:
+                cpu: "1"
+                memory: "2G"
     
       # -- The Docker entrypoint.py generates application configuration on
       # first start; not all of these files are regenerated on subsequent starts.

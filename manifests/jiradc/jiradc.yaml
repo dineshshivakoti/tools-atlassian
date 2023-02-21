@@ -102,8 +102,8 @@ spec:
     
       # -- The database type that should be used. If not specified, then it will need to be
       # provided via the browser during manual configuration post deployment. Valid values
-      # include:
-      # - 'postgres72'
+      include:
+        - 'postgres72'
       # - 'mysql57'
       # - 'mysql8'
       # - 'oracle10g'
@@ -115,7 +115,7 @@ spec:
       
       # -- The jdbc URL of the database. If not specified, then it will need to be provided
       # via the browser during manual configuration post deployment. Example URLs include:
-      # - 'jdbc:postgresql://<dbhost>:5432/<dbname>'
+        - 'jdbc:postgresql://<dbhost>:5432/<dbname>'
       # - 'jdbc:mysql://<dbhost>/<dbname>'
       # - 'jdbc:sqlserver://<dbhost>:1433;databaseName=<dbname>'
       # - 'jdbc:oracle:thin:@<dbhost>:1521:<SID>'
@@ -126,7 +126,7 @@ spec:
       # -- The Java class name of the JDBC driver to be used. If not specified, then it will
       # need to be provided via the browser during manual configuration post deployment.
       # Valid drivers are:
-      # - 'org.postgresql.Driver'
+        - 'org.postgresql.Driver'
       # - 'com.mysql.jdbc.Driver'
       # - 'oracle.jdbc.OracleDriver'
       # - 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
@@ -166,6 +166,10 @@ spec:
     # appropriately.
     # https://atlassian.github.io/data-center-helm-charts/userguide/CONFIGURATION/#volumes
     #
+    #license:
+    #  secretName: <secret_name>
+    #  secretKey: license-key
+
     volumes:
     
       # Each pod requires its own volume for 'local-home'. This is needed for key data
@@ -184,7 +188,7 @@ spec:
           # -- If 'true', then a 'PersistentVolume' and 'PersistentVolumeClaim' will be dynamically
           # created for each pod based on the 'StorageClassName' supplied below.
           #
-          create: false
+          create: true
           
           # -- Specify the name of the 'StorageClass' that should be used for the local-home
           # volume claim.
@@ -234,7 +238,7 @@ spec:
           # -- If 'true', then a 'PersistentVolumeClaim' and 'PersistentVolume' will be dynamically
           # created for shared-home based on the 'StorageClassName' supplied below.
           #
-          create: false
+          create: true
           
           # -- Specify the name of the 'StorageClass' that should be used for the 'shared-home'
           #volume claim.
@@ -317,7 +321,7 @@ spec:
       # -- Set to 'true' if an Ingress Resource should be created. This depends on a
       # pre-provisioned Ingress Controller being available.
       #
-      create: false
+      create: true
     
       # -- The class name used by the ingress controller if it's being used.
       #
@@ -508,7 +512,7 @@ spec:
         # -- Set to 'true' if Data Center clustering should be enabled
         # This will automatically configure cluster peer discovery between cluster nodes.
         #
-        enabled: false
+        enabled: true
     
       shutdown:
     
@@ -540,11 +544,11 @@ spec:
           
           # -- The maximum amount of heap memory that will be used by the Jira JVM
           #
-          maxHeap: "768m"
+          maxHeap: "512m"
           
           # -- The minimum amount of heap memory that will be used by the Jira JVM
           #
-          minHeap: "384m"
+          minHeap: "512m"
           
           # -- The memory reserved for the Jira JVM code cache
           #

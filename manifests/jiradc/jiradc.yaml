@@ -1,21 +1,19 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: jidadc
+  name: jiradc
   namespace: jiradc
 spec:
   interval: 10m
   timeout: 10m0s
   releaseName: jiradc
-  upgrade:
-    force: true
   chart:
     spec:
-      chart: jira-software
-      version: 2.1.5
+      chart: jira
+      version: 1.4.0
       sourceRef:
         kind: HelmRepository
-        name: atlassian-data-center
+        name: jiradc
         namespace: flux-system
   values:
     # https://helm.mox.sh
@@ -32,7 +30,7 @@ spec:
     image:
       # registry: hub.docker.com
       repository: atlassian/jira-software
-      tag: 8.22.3
+      tag: ""
       ## Specify a imagePullPolicy
       ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
       ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images

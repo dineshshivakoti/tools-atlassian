@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: atlassian-data-center
-  namespace: flux-system
-spec:
-  interval: 1m
-  url: https://atlassian.github.io/data-center-helm-charts/

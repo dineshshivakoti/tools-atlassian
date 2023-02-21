@@ -9,11 +9,11 @@ spec:
   releaseName: jiradc
   chart:
     spec:
-      chart: jira
+      chart: atlassian-data-center/jira
       version: 1.4.0
       sourceRef:
         kind: HelmRepository
-        name: jiradc
+        name: atlassian-data-center
         namespace: flux-system
   values:
     # https://helm.mox.sh
